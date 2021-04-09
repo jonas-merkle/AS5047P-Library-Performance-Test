@@ -1,0 +1,3 @@
+[submodule "lib/AS5047P"]
+	path = lib/AS5047P
+	url = https://github.com/jonas-merkle/AS5047P.git
