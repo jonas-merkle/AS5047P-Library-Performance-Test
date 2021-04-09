@@ -1,7 +1,5 @@
 #include <Arduino.h>
 #include <inttypes.h>
-
-#define AS5047P_SPI_USE_100NS_NOP_DELAY
 #include <AS5047P.h>
 
 // define the chip select port.
@@ -29,7 +27,7 @@ void setup()
 
   	// initialize the AS5047P sensor and hold if sensor can't be initialized.
   	while (!as5047p.initSPI()) {
-    	Serial.println(F("Can't connect to the AS5047P sensor! Please check the connection... "));
+    	Serial.println(F("Can't connect to the AS5047P sensor! Please check the connection..."));
     	delay(5000);
   	}
 
