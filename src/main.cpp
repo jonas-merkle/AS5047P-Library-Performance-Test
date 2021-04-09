@@ -62,12 +62,12 @@ void loop()
 
 	Serial.print(F("Total Time:   "));
 	char buf[20] = {0};
-	sprintf( buf, "%llu", timings);
+	sprintf( buf, "%lu", timings);
 	Serial.print(buf);
 	Serial.println(F(" microseconds"));
 
 	Serial.print(F("Average Time: "));
-	sprintf( buf, "%llu", timings/NUMBER_OF_MEASUREMENTS);
+	sprintf( buf, "%lu", (uint32_t) timings/NUMBER_OF_MEASUREMENTS);
 	Serial.print(buf);
 	Serial.println(F(" microseconds"));
 
