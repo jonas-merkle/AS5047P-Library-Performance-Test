@@ -324,8 +324,8 @@ Temporary Items
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/tasks.json
-!.vscode/launch.json
+#!.vscode/tasks.json
+#!.vscode/launch.json
 *.code-workspace
 
 ### VisualStudioCode Patch ###
@@ -335,7 +335,7 @@ Temporary Items
 
 ### vscode ###
 #!.vscode/settings.json
-!.vscode/extensions.json
+#!.vscode/extensions.json
 
 ### Windows ###
 # Windows thumbnail cache files
