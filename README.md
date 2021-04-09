@@ -1,5 +1,7 @@
 # AS5047P Library Performance Test
 
+This software is for testing the performance of the [AS5047P library](https://github.com/jonas-merkle/AS5047P).
+
 ## Contents
 
 - [AS5047P Library Performance Test](#as5047p-library-performance-test)
