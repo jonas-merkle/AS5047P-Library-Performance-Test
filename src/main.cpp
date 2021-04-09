@@ -6,7 +6,11 @@
 #define AS5047P_CHIP_SELECT_PORT 10 
 
 // define the spi bus speed 
-#define AS5047P_CUSTOM_SPI_BUS_SPEED 100000
+//#define AS5047P_CUSTOM_SPI_BUS_SPEED 100000
+#define AS5047P_CUSTOM_SPI_BUS_SPEED 8000000
+//#define AS5047P_CUSTOM_SPI_BUS_SPEED 20000000
+//#define AS5047P_CUSTOM_SPI_BUS_SPEED 28000000
+
 
 // initialize a new AS5047P sensor object.
 AS5047P as5047p(AS5047P_CHIP_SELECT_PORT, AS5047P_CUSTOM_SPI_BUS_SPEED);
@@ -18,6 +22,7 @@ void setup()
 {
 	// initialize the serial bus for the communication with your pc.
   	Serial.begin(115200);
+	while (!Serial) {}
 
   	// initialize the AS5047P sensor and hold if sensor can't be initialized.
   	while (!as5047p.initSPI()) {
@@ -50,18 +55,19 @@ void loop()
 	for (uint16_t i  = 0; i < NUMBER_OF_MEASUREMENTS; i++)
 	{
 		uint32_t startTime = micros();
-		as5047p.readAngleDegree();
+		//as5047p.readAngleDegree();
+		as5047p.readAngleRaw();
 		timings += micros() - startTime;
 	}
 
 	Serial.print(F("Total Time:   "));
 	char buf[20] = {0};
-	sprintf( buf, "%ld", timings);
+	sprintf( buf, "%llu", timings);
 	Serial.print(buf);
 	Serial.println(F(" microseconds"));
 
 	Serial.print(F("Average Time: "));
-	sprintf( buf, "%ld", timings/NUMBER_OF_MEASUREMENTS);
+	sprintf( buf, "%llu", timings/NUMBER_OF_MEASUREMENTS);
 	Serial.print(buf);
 	Serial.println(F(" microseconds"));
 
